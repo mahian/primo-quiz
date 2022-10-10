@@ -12,7 +12,7 @@ const Hero = () => {
                 </div>
             </div>
             <div className='p-10 flex justify-center items-center'>
-                <img className='rounded-xl max-w-4xl' src="assets/learning.jpg" alt="" />
+                <img className='rounded-xl md:max-w-4xl' src="assets/learning.jpg" alt="" />
             </div>
         </section>
     );
