@@ -4,6 +4,7 @@ import Blog from './components/Blog';
 import Error from './components/Error';
 import Home from './components/Home';
 import Quizes from './components/Quizes';
+import StartQuiz from './components/StartQuiz';
 import Root from './Root';
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
       {path: '/', element: <Home></Home>},
       {path: 'quizes', element: <Quizes></Quizes>},
       {path: 'blog', element: <Blog></Blog>},
+      {path: 'quizes/:id', element: <StartQuiz></StartQuiz>,
+      loader: ()=> fetch(`https://openapi.programming-hero.com/api/quiz/1`)},
       {path: '*', element: <Error></Error>},
     ]
   }])
