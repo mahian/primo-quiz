@@ -1,24 +1,49 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid'
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid';
+// import react toast
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const StartQuiz = () => {
     const quizes = useLoaderData();
     const [showAns, setShowAns] = useState(false);
     const { questions } = quizes.data;
+    // retunt full page
     return (
         <section className="p-10">
             <h1 className="text-6xl font-bold mb-10 text-center">
                 start quiz {quizes.data.id}
             </h1>
             <div className="">
+            {/* map all quize data */}
             {questions.map((quiz) => {
                 const {question, correctAnswer} = quiz;
                 const quizHandler = (answer) => {
                     const selectedAns = answer;
                     const correctAns = correctAnswer;
                     if(selectedAns === correctAns){
-                        alert('correct');
+                        toast.success('Correct Answer ✔️', {
+                            position: "top-center",
+                            autoClose: 500,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                        });
+                    }else{
+                        toast.error('Wrong Answer ❌', {
+                            position: "top-center",
+                            autoClose: 500,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                        });
                     }
                     console.log(correctAns, selectedAns);
                 };
@@ -30,6 +55,7 @@ const StartQuiz = () => {
                     }
                     return showAns;
                 }
+                // return only quiz box
                 return (
                     <div key={quiz.id} className="border border-gray-300 my-5 md:max-w-4xl mx-auto p-10 rounded-lg">
                         <h2 className="text-center font-semibold text-2xl mb-5">
@@ -39,6 +65,7 @@ const StartQuiz = () => {
                         <p className={`text-center mb-5 text-green-700 ${showAns === false ? 'hidden': 'block'}`}>{correctAnswer}</p>
                         <div className="flex flex-col px-10 items-center">
                             {quiz.options.map((option) => {
+                                // return quiz answer
                                 return (
                                     <button
                                         key={option}
@@ -54,6 +81,7 @@ const StartQuiz = () => {
                 );
             })}
             </div>
+            <ToastContainer></ToastContainer>
         </section>
     );
 };
