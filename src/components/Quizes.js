@@ -26,7 +26,7 @@ const Quizes = () => {
                             <div className='flex justify-between w-full p-5 prime-bg text-white'>
                                 <h4 className='font-bold'>{name}</h4>
                                 <span className='font-semibold'>total : {total}</span>
-                                <Link to={`../quizes/${id}`}>Go to quiz</Link>
+                                <Link className='hover:underline' to={`../quizes/${id}`}>Go to quiz</Link>
                             </div>
                         </div>
                     )
