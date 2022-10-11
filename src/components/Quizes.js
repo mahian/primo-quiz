@@ -19,14 +19,14 @@ const Quizes = () => {
                 quizes.map(quiz => {
                     const {name, logo, total, id} = quiz;
                     return(
-                        <div key={id} className='bg-slate-200 flex flex-col items-center'>
+                        <div key={id} className='bg-pink-100 flex flex-col items-center rounded-lg overflow-hidden'>
                             <div className='p-10'>
                             <img className='w-full' src={logo} alt="" />
                             </div>
-                            <div className='flex justify-between w-full p-5 prime-bg text-white'>
+                            <div className='flex justify-between items-center w-full p-5 prime-bg text-white'>
                                 <h4 className='font-bold'>{name}</h4>
                                 <span className='font-semibold'>total : {total}</span>
-                                <Link className='hover:underline' to={`../quizes/${id}`}>Go to quiz</Link>
+                                <Link className='second-btn px-4 py-1 rounded-lg' to={`../quizes/${id}`}>Go to quiz</Link>
                             </div>
                         </div>
                     )

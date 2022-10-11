@@ -6,7 +6,8 @@ const Statistic = () => {
     const quizes = useLoaderData();
     return (
         <section>
-            <div className="p-10">
+            <h1 className="text-center font-semibold text-4xl my-5">Quiz analytics</h1>
+            <div className="p-10 overflow-x-auto">
                 <ComposedChart width={1024} height={500} data={quizes.data}>
                     <XAxis dataKey="total" />
                     <YAxis />
