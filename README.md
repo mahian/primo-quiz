@@ -1,4 +1,13 @@
-Project Live Link: https://primo-quiz.netlify.app/
+Project Live Link : https://primo-quiz.netlify.app/
+
+what i did : 
+
+1/ create router
+2/ load api
+3/ handle quiz validation
+4/ use toastify
+5/ work with multiple component
+
 
 # Getting Started with Create React App
 
